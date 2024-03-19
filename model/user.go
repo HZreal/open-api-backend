@@ -4,6 +4,9 @@ import (
 	"gorm.io/gorm"
 )
 
+type Tabler interface {
+	TableName() string
+}
 type User struct {
 	gorm.Model
 
@@ -18,6 +21,10 @@ type User struct {
 	Role         uint    `json:"role" gorm:"comment:0普通用户 1管理员;size:2"`
 	AccessKey    string  `json:"access_key" gorm:"comment:用户认证;size:512"`
 	SecretKey    string  `json:"secret_key" gorm:"comment:密钥;size:512"`
+}
+
+func (receiver User) TableName() string {
+	return "tb_user"
 }
 
 type UserInfo struct {
