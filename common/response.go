@@ -14,10 +14,26 @@ func SuccessWithData(data interface{}) *Response {
 	}
 }
 
-func Failed(data interface{}) *Response {
+func SuccessWithoutData() *Response {
 	return &Response{
 		Code: 0,
 		Msg:  "success",
-		Data: data,
+		Data: nil,
+	}
+}
+
+type ErrorCode struct {
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+}
+
+var ParamsError = ErrorCode{904030, "请求参数错误"}
+var NoAuth = ErrorCode{904010, "未认证!"}
+var UKnownError = ErrorCode{999999, "未知错误!"}
+
+func Failed(err ErrorCode) *Response {
+	return &Response{
+		Code: err.Code,
+		Msg:  err.Msg,
 	}
 }
