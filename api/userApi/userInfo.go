@@ -25,11 +25,10 @@ func (UserApi) GetUserById(c *gin.Context) {
 
 func (UserApi) CreateUser(c *gin.Context) {
 	var userCreate dto.UserCreateDTO
-	err := c.ShouldBind(&userCreate)
+	err := c.ShouldBindJSON(&userCreate)
 	if err != nil {
 		fmt.Println("params error")
 		c.JSON(http.StatusForbidden, gin.H{"code": http.StatusForbidden})
-		return
 	}
 	user := &model.User{
 		Model:        gorm.Model{},
