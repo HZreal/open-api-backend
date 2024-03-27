@@ -8,7 +8,7 @@ func addUserRouter() {
 	userGroup := apiGroup.Group("user")
 	{
 		userGroup.GET("info/all")
-		userGroup.GET("info/list")
+		userGroup.POST("info/list", userApi.GetUserList)
 		userGroup.GET("info/detail", userApi.GetUserById)
 		userGroup.POST("info/create", userApi.CreateUser)
 		userGroup.POST("info/update")
