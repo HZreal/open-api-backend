@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"net/http"
+	"open-api-backend/common"
 	"open-api-backend/model"
 	dto "open-api-backend/model/dto"
 )
@@ -28,7 +29,8 @@ func (UserApi) CreateUser(c *gin.Context) {
 	err := c.ShouldBindJSON(&userCreate)
 	if err != nil {
 		fmt.Println("params error")
-		c.JSON(http.StatusForbidden, gin.H{"code": http.StatusForbidden})
+		c.JSON(http.StatusForbidden, common.Failed(common.ParamsError))
+		return
 	}
 	user := &model.User{
 		Model:        gorm.Model{},
@@ -48,6 +50,7 @@ func (UserApi) CreateUser(c *gin.Context) {
 	if result.Error != nil {
 		fmt.Println("result.Error  ---->  ", result.Error)
 		c.JSON(http.StatusOK, gin.H{"code": 99999, "msg": "create failed", "data": nil})
+		return
 	}
 	fmt.Println("result  ---->  ", result)
 	fmt.Println("result.RowsAffected  ---->  ", result.RowsAffected)
