@@ -15,3 +15,7 @@ type InterfaceInfo struct {
 	RequestParams  string `json:"request_params" gorm:"comment:请求参数"`
 	Status         bool   `json:"status" gorm:"comment:接口状态：0关闭，1开启;not null"`
 }
+
+func (receiver InterfaceInfo) TableName() string {
+	return "interface_info"
+}

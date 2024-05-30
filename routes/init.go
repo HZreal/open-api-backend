@@ -19,7 +19,7 @@ func init() {
 	// routers definition
 	apiGroup = r.Group("api")
 	addUserRouter()
-	//addInterfaceRouter()
+	addInterfaceRouter()
 }
 
 func StartGinServer() {
