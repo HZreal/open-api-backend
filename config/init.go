@@ -10,6 +10,7 @@ type Config struct {
 	Gin   GinConfig    `yaml:"gin"`
 	Mysql *MysqlConfig `yaml:"mysql"`
 	Redis *RedisConfig `yaml:"redis"`
+	GRPC  *GRPCConfig  `yaml:"grpc"`
 }
 
 var Conf Config
