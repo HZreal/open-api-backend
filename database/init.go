@@ -11,6 +11,6 @@ var Client *redis.Client
 var Ctx = context.Background()
 
 func init() {
-	//InitRedis()
+	InitRedis()
 	InitMysql()
 }
