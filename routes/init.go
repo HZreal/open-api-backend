@@ -12,6 +12,9 @@ var apiGroup *gin.RouterGroup
 
 func init() {
 	//
+	gin.SetMode(config.Conf.Gin.Mode)
+
+	//
 	r = gin.Default()
 
 	// cors
