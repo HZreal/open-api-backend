@@ -13,10 +13,17 @@
 ## 系统设计
 
 - 接口统一管理服务（平台）
+  - https://github.com/HZreal/open-api-backend
 - 接口提供服务（实际接口提供源）
+  - https://github.com/HZreal/open-api-provider
 - 通用业务服务（统一模型、服务类）
+  - https://github.com/HZreal/open-api-common
 - 网关服务（统一鉴权、路由、访问控制、统计计费等）
+  - https://github.com/HZreal/open-api-gateway
 - 接口客户端 SDK（用户客户端多语言接口调用封装包）
+  - https://github.com/code-elastic/open-api-client-sdk-go
+  - https://github.com/code-elastic/open-api-client-sdk-python
+  - https://github.com/code-elastic/open-api-client-sdk-node
 
 ## 技术点
 
